@@ -2,23 +2,19 @@ namespace PA2.Interfaces
 {
     public class Distract:IAttack
     {
-        public void Attack(Character attacker, Character defender ) //pass in attacker and defender 
+        public void Attack(Character attacker, Character defender, Character playerName) //pass in attacker and defender 
         {
-            // if(x > y)
-            // {
-            //     System.Console.WriteLine("distract");
-            //     double damage = (x - y)*(1.2);
-            //     z -= damage;
-            // }
-            // else if (x <= y)
-            // {
-            //     double damage = (x - y)*(1);
-            //     z -= damage;
-            // }
-
-            // return z;
-            //if statements for the bonuses
-            //bonus based on charecter type 
+            System.Console.WriteLine(playerName.PlayerName + " attacked with Distract");
+            if (defender.ToString() == "PA2.Interfaces.WillTurner")
+            {
+                double damage = (attacker.AttackStrength - defender.DefensePower)*(1.2);
+                 defender.Health -= damage;
+            }
+            else
+            {
+                double damage = (attacker.AttackStrength - defender.DefensePower)*(1);
+                 defender.Health -= damage;
+            }
         }
     }
 }

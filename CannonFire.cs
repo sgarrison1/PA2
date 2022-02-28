@@ -2,10 +2,9 @@ namespace PA2.Interfaces
 {
     public class CannonFire: IAttack
     {
-        public void Attack(Character attacker, Character defender)
+        public void Attack(Character attacker, Character defender, Character playerName)
         {
-            System.Console.WriteLine("cannon");
-            System.Console.WriteLine(defender.ToString());
+            System.Console.WriteLine(playerName.PlayerName + " attacked with cannon");
             if (defender.ToString() == "PA2.Interfaces.JackSparrow")
             {
                 double damage = (attacker.AttackStrength - defender.DefensePower)*(1.2);

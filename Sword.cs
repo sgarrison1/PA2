@@ -2,22 +2,19 @@ namespace PA2.Interfaces
 {
     public class Sword :IAttack
     {
-        public void Attack(Character attacker, Character defender)
+        public void Attack(Character attacker, Character defender, Character playerName)
         {
-            System.Console.WriteLine("sword");
-            //  if(x > y)
-            // {
-            //     System.Console.WriteLine("distract");
-            //     double damage = (x - y)*(1.2);
-            //     z -= damage;
-            // }
-            // else if (x <= y)
-            // {
-            //     double damage = (x - y)*(1);
-            //     z -= damage;
-            // }
-
-            // return z;
+            System.Console.WriteLine(playerName.PlayerName + " attacked with sword");
+            if (defender.ToString() == "PA2.Interfaces.DaveyJones")
+            {
+                double damage = (attacker.AttackStrength - defender.DefensePower)*(1.2);
+                 defender.Health -= damage;
+            }
+            else
+            {
+                double damage = (attacker.AttackStrength - defender.DefensePower)*(1);
+                 defender.Health -= damage;
+            }
         }
         
     }
