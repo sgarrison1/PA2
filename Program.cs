@@ -10,12 +10,14 @@ namespace PA2
         static void Main(string[] args)
         {  
             string player1Name = Player1();
+            Character char1 = GetChar1(player1Name);
             string player2Name = Player2();
-            int turn = WhoGoes1st();
-            CharacterChoices(turn, player1Name, player2Name);
+            Character char2 = GetChar2(player2Name);
+            int turn = DiceRoll();
+            WhoGoes1st(char1, char2, turn);
+           
 
         }
-
        static string Player1()
        {
             System.Console.WriteLine("Welcome to the Pirates of the Carribean battle game\nPlayer 1 enter your name");
@@ -25,139 +27,94 @@ namespace PA2
        }
        static string Player2()
        {
-            System.Console.WriteLine("PLayer 2 enter your name");
+            System.Console.WriteLine("Player 2 enter your name");
             string player2Name = Console.ReadLine();
             return player2Name;
        }
-
-       static int WhoGoes1st()
+       static Character GetChar1(string player1Name)
+       {
+           System.Console.WriteLine(player1Name + " choose your character\n1. Davey Jones\n2. Will Turner\n3. Jack Sparrow");
+           int choice = int.Parse(Console.ReadLine());
+           if(choice == 1)
+           {
+               return new DaveyJones(){PlayerName = player1Name};
+           }
+           if(choice == 2)
+           {
+               return new WillTurner(){PlayerName = player1Name};
+           }
+           else
+           {
+               return new JackSparrow(){PlayerName = player1Name};
+           }
+       }
+       static Character GetChar2(string player2Name)
+       {
+           System.Console.WriteLine(player2Name + " choose your character\n1. Davey Jones\n2. Will Turner\n3. Jack Sparrow");
+           int choice = int.Parse(Console.ReadLine());
+           if(choice == 1)
+           {
+               return new DaveyJones(){PlayerName = player2Name};
+           }
+           if(choice == 2)
+           {
+               return new WillTurner(){PlayerName = player2Name};
+           }
+           else
+           {
+               return new JackSparrow(){PlayerName = player2Name};
+           }
+       }
+       static int DiceRoll()
         {
             Random turn = new Random();
             int turn2 = turn.Next(2)+1;
             return turn2;
         }
-        static void CharacterChoices(int turn2, string player1Name, string player2Name)
+        static void WhoGoes1st(Character char1, Character char2, int turn2)
         {
             if(turn2 == 1)
             {
-                System.Console.WriteLine("player 1 goes first"); 
-                System.Console.WriteLine(player1Name + " Select your character\n1. Davey Jone\n2. Will Turner\n3. Jack Sparrow");
-                int player1Character = int.Parse(Console.ReadLine());
-                System.Console.WriteLine(player2Name +  " Select your character\n1. Davey Jone\n2. Will Turner\n3. Jack Sparrow");
-                int player2Character = int.Parse(Console.ReadLine());
-                if(player1Character == 1 && player2Character == 1)
-                {
-                    Character player1 = new DaveyJones(){PlayerName = player1Name};
-                    Console.WriteLine("Player " + player1.PlayerName + "'s max power is " + player1.MaxPower + " their strength is " + player1.AttackStrength + " there defense power is " + player1.DefensePower+ " there health is "+ player1.Health);
-                    Character player2 = new DaveyJones(){PlayerName = player2Name};
-                    Console.WriteLine("Player " + player2.PlayerName + "'s max power is " + player2.MaxPower + " their strength is " + player2.AttackStrength + " there defense power is " + player2.DefensePower+ " there health is "+ player2.Health);
-                    GamePlay(player1,player2);
-                }
-                else if(player1Character == 1 && player2Character == 2)
-                {
-                    Character player1 = new DaveyJones(){PlayerName = player1Name};
-                    Console.WriteLine("Player " + player1.PlayerName + "'s max power is " + player1.MaxPower + " their strength is " + player1.AttackStrength + " there defense power is " + player1.DefensePower+ " there health is "+ player1.Health);
-                    Character player2 = new WillTurner(){PlayerName = player2Name};
-                    Console.WriteLine("Player " + player2.PlayerName + "'s max power is " + player2.MaxPower + " their strength is " + player2.AttackStrength + " there defense power is " + player2.DefensePower+ " there health is "+ player2.Health);
-                    GamePlay(player1,player2);
-                }
-                else if(player1Character == 1 && player2Character == 3)
-                {
-                    Character player1 = new DaveyJones(){PlayerName =player1Name};
-                    System.Console.WriteLine("Player " + player1.PlayerName + "'s max power is " + player1.MaxPower + " their strength is " + player1.AttackStrength + " there defense power is " + player1.DefensePower+ " there health is "+ player1.Health);
-                    Character player2 = new JackSparrow(){PlayerName = player2Name};
-                    Console.WriteLine("Player " + player2.PlayerName + "'s max power is " + player2.MaxPower + " their strength is " + player2.AttackStrength + " there defense power is " + player2.DefensePower+ " there health is "+ player2.Health);
-                    GamePlay(player1,player2);
-                }
-                else if(player2Character == 2 && player1Character == 1)
-                {
-                    Character player1 = new DaveyJones(){PlayerName = player1Name};
-                    Console.WriteLine("Player " + player1.PlayerName + "'s max power is " + player1.MaxPower + " their strength is " + player1.AttackStrength + " there defense power is " + player1.DefensePower+ " there health is "+ player1.Health);
-                    Character player2 = new WillTurner(){PlayerName = player2Name};
-                     Console.WriteLine("Player " + player2.PlayerName + "'s max power is " + player2.MaxPower + " their strength is " + player2.AttackStrength + " there defense power is " + player2.DefensePower+ " there health is "+ player2.Health);
-                     GamePlay(player1,player2);
-                    
-                }
-                else if(player2Character == 2)
-                {
-                    Character player2 = new WillTurner(){PlayerName = player2Name};
-                    Console.WriteLine("Player " + player2.PlayerName + "'s max power is " + player2.MaxPower + " their strength is " + player2.AttackStrength + " there defense power is " + player2.DefensePower+ " there health is "+ player2.Health);
-                }
-                else if(player2Character == 3)
-                {
-                    Character player2 = new JackSparrow(){PlayerName = player2Name};
-                    Console.WriteLine("Player " + player2.PlayerName + "'s max power is " + player2.MaxPower + " their strength is " + player2.AttackStrength + " there defense power is " + player2.DefensePower+ " there health is "+ player2.Health);
-                }
-                
+                System.Console.WriteLine(char1.PlayerName + " goes first");
+                GamePlay(char1, char2);
             }
-            else if(turn2 ==2)
+            else
             {
-                System.Console.WriteLine("Player 2 goes first");
-                System.Console.WriteLine(player2Name + " Select your character\n1. Davey Jone\n2. Will Turner\n3. Jack Sparrow");
-                int player2Character = int.Parse(Console.ReadLine());
-                System.Console.WriteLine(player1Name + " Select your character\n1. Davey Jone\n2. Will Turner\n3. Jack Sparrow");
-                int player1Character = int.Parse(Console.ReadLine());
-                if(player1Character == 1 && player2Character == 1)
-                {
-                    Character player1 = new DaveyJones(){PlayerName = player1Name};
-                    Console.WriteLine("Player " + player1.PlayerName + "'s max power is " + player1.MaxPower + " their strength is " + player1.AttackStrength + " there defense power is " + player1.DefensePower+ " there health is "+ player1.Health);
-                    Character player2 = new DaveyJones(){PlayerName = player2Name};
-                    Console.WriteLine("Player " + player2.PlayerName + "'s max power is " + player2.MaxPower + " their strength is " + player2.AttackStrength + " there defense power is " + player2.DefensePower+ " there health is "+ player2.Health);
-                    GamePlay(player2,player1);
-                }
-                else if(player2Character == 2)
-                {
-                    Character player2 = new WillTurner(){PlayerName = player2Name};
-                    Console.WriteLine("Player " + player2.PlayerName + "'s max power is " + player2.MaxPower + " their strength is " + player2.AttackStrength + " there defense power is " + player2.DefensePower+ " there health is "+ player2.Health);
-                }
-                else if(player2Character == 3)
-                {
-                    Character player2 = new JackSparrow(){PlayerName = player2Name};
-                    Console.WriteLine("Player " + player2.PlayerName + "'s max power is " + player2.MaxPower + " their strength is " + player2.AttackStrength + " there defense power is " + player2.DefensePower+ " there health is "+ player2.Health);
-                }
-
-                
-                else if(player1Character == 1)
-                {
-                    Character player1 = new DaveyJones(){PlayerName = player1Name};
-                    Console.WriteLine("Player " + player1.PlayerName + "'s max power is " + player1.MaxPower + " their strength is " + player1.AttackStrength + " there defense power is " + player1.DefensePower+ " there health is "+ player1.Health);
-                }
-                else if(player1Character == 2)
-                {
-                    Character player1 = new WillTurner(){PlayerName = player1Name};
-                    Console.WriteLine("Player " + player1.PlayerName + "'s max power is " + player1.MaxPower + " their strength is " + player1.AttackStrength + " there defense power is " + player1.DefensePower+ " there health is "+ player1.Health);
-                }
-                else if(player1Character == 3)
-                {
-                    Character player1 = new JackSparrow(){PlayerName = player1Name};
-                    Console.WriteLine("Player " + player1.PlayerName + "'s max power is " + player1.MaxPower + " their strength is " + player1.AttackStrength + " there defense power is " + player1.DefensePower+ " there health is "+ player1.Health);
-                }
-
+                System.Console.WriteLine(char2.PlayerName + " goes first");
+                GamePlay(char2, char1);
             }
             
-
         }
-        static void GamePlay(Character playerA, Character playerB)
+        static void GamePlay(Character char1, Character char2)
             {
-               while(playerA.Health > 0 && playerB.Health > 0)
+               while(char1.Health > 0 && char2.Health > 0)
                {
-                    playerA.attackBehavior.Attack(playerA, playerB, playerA);
-                    System.Console.WriteLine("The attacker attacked with " + playerA.AttackStrength + " the defender now has " + playerB.Health + " health");
-                    System.Console.WriteLine("PLAYER STATS:\nPlayer " + playerA.PlayerName + "'s max power is " + playerA.MaxPower + " their strength is " + playerA.AttackStrength + " there defense power is " + playerA.DefensePower+ " there health is "+ playerA.Health + "\nPlayer " + playerB.PlayerName + "'s max power is " + playerB.MaxPower + " their strength is " + playerB.AttackStrength + " there defense power is " + playerB.DefensePower+ " there health is "+ playerB.Health);
-                    playerB.attackBehavior.Attack(playerB,playerA,playerB);
-                    System.Console.WriteLine("The attacker attacked with " + playerB.AttackStrength + " the defender now has " + playerA.Health + " health");
-                    System.Console.WriteLine("PLAYER STATS:\nPlayer " + playerA.PlayerName + "'s max power is " + playerA.MaxPower + " their strength is " + playerA.AttackStrength + " there defense power is " + playerA.DefensePower+ " there health is "+ playerA.Health + "\nPlayer " + playerB.PlayerName + "'s max power is " + playerB.MaxPower + " their strength is " + playerB.AttackStrength + " there defense power is " + playerB.DefensePower+ " there health is "+ playerB.Health);
-
+                    char1.attackBehavior.Attack(char1, char2, char1);
+                    System.Console.WriteLine(char2.PlayerName + "'s Stats:\nHealth = " + char2.Health + " Max Power = " + char2.MaxPower + " Attack Strength = " + char2.AttackStrength + " Defense Power = " + char2.DefensePower);
+                    System.Console.WriteLine(char1.PlayerName + "'s Stats:\nHealth = " + char1.Health + " Max Power = " + char1.MaxPower + " Attack Strength = " + char1.AttackStrength + " Defense Power = " + char1.DefensePower);
+                    WhoWon(char1, char2);
+                    char2.attackBehavior.Attack(char2,char1,char2);
+                    System.Console.WriteLine(char1.PlayerName + "'s Stats:\nHealth = " + char1.Health + " Max Power = " + char1.MaxPower + " Attack Strength = " + char1.AttackStrength + " Defense Power = " + char1.DefensePower);
+                    System.Console.WriteLine(char2.PlayerName + "'s Stats:\nHealth = " + char2.Health + " Max Power = " + char2.MaxPower + " Attack Strength = " + char2.AttackStrength + " Defense Power = " + char2.DefensePower);
+                    WhoWon(char1, char2);
                }
-               if(playerA.Health <= 0)
+              
+            }
+            static void WhoWon(Character char1, Character char2)
+            {
+               if(char1.Health <= 0)
                {
-                   System.Console.WriteLine(playerB.PlayerName + " Won!!");
+                   System.Console.WriteLine(char2.PlayerName + " Won!!");
+                   Environment.Exit(0);
                }
-               else if(playerB.Health <= 0)
+               else if(char2.Health <= 0)
                {
-                   System.Console.WriteLine(playerA.PlayerName + " Won!!");
+                   System.Console.WriteLine(char1.PlayerName + " Won!!");
+                   Environment.Exit(0);
                }
             }
+
+
        
     }
 }

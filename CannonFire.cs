@@ -5,15 +5,26 @@ namespace PA2.Interfaces
         public void Attack(Character attacker, Character defender, Character playerName)
         {
             System.Console.WriteLine(playerName.PlayerName + " attacked with cannon");
-            if (defender.ToString() == "PA2.Interfaces.JackSparrow")
+            if(defender.DefensePower > attacker.AttackStrength)
             {
-                double damage = (attacker.AttackStrength - defender.DefensePower)*(1.2);
-                 defender.Health -= damage;
+                double damage = 1;
+                defender.Health -= damage;
+                System.Console.WriteLine("Damage delt: " + damage);
             }
             else
             {
-                double damage = (attacker.AttackStrength - defender.DefensePower)*(1);
-                 defender.Health -= damage;
+                if (defender.ToString() == "PA2.Interfaces.JackSparrow")
+                {
+                    double damage = (attacker.AttackStrength - defender.DefensePower)*(1.2);
+                    defender.Health -= damage;
+                    System.Console.WriteLine("Damage delt: " + damage);
+                }
+                else
+                {
+                    double damage = (attacker.AttackStrength - defender.DefensePower)*(1);
+                    defender.Health -= damage;
+                    System.Console.WriteLine("Damage delt: " + damage);
+                }
             }
         }
 
