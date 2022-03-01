@@ -11,7 +11,7 @@ namespace PA2.Interfaces
         public int AttackStrength{get;set;}
         public int  DefensePower{get;set;}
 
-        public IAttack attackBehavior{get;set;} //put on uml
+        public IAttack attackBehavior{get;set;}
         public Character()
         {
             attackBehavior = new Distract();

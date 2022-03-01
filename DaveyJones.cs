@@ -1,4 +1,3 @@
-using System;
 namespace PA2.Interfaces
 {
     public class DaveyJones: Character
@@ -7,10 +6,6 @@ namespace PA2.Interfaces
         public DaveyJones()
         {
             attackBehavior = new CannonFire();
-        }
-        public string GetName()
-        {
-           return CharacterName = "Davey Jones";
         }
 
     }

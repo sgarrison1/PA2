@@ -13,3 +13,18 @@
 /Users/sarahgarrison/PA2/obj/Debug/net5.0/ref/PA2.dll
 /Users/sarahgarrison/PA2/obj/Debug/net5.0/PA2.pdb
 /Users/sarahgarrison/PA2/obj/Debug/net5.0/PA2.genruntimeconfig.cache
+/Users/sarahgarrison/Desktop/MIS 321/CODE/PA2/bin/Debug/net5.0/PA2.deps.json
+/Users/sarahgarrison/Desktop/MIS 321/CODE/PA2/bin/Debug/net5.0/PA2.runtimeconfig.json
+/Users/sarahgarrison/Desktop/MIS 321/CODE/PA2/bin/Debug/net5.0/PA2.runtimeconfig.dev.json
+/Users/sarahgarrison/Desktop/MIS 321/CODE/PA2/bin/Debug/net5.0/PA2.dll
+/Users/sarahgarrison/Desktop/MIS 321/CODE/PA2/bin/Debug/net5.0/ref/PA2.dll
+/Users/sarahgarrison/Desktop/MIS 321/CODE/PA2/bin/Debug/net5.0/PA2.pdb
+/Users/sarahgarrison/Desktop/MIS 321/CODE/PA2/obj/Debug/net5.0/PA2.csproj.AssemblyReference.cache
+/Users/sarahgarrison/Desktop/MIS 321/CODE/PA2/obj/Debug/net5.0/PA2.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sarahgarrison/Desktop/MIS 321/CODE/PA2/obj/Debug/net5.0/PA2.AssemblyInfoInputs.cache
+/Users/sarahgarrison/Desktop/MIS 321/CODE/PA2/obj/Debug/net5.0/PA2.AssemblyInfo.cs
+/Users/sarahgarrison/Desktop/MIS 321/CODE/PA2/obj/Debug/net5.0/PA2.csproj.CoreCompileInputs.cache
+/Users/sarahgarrison/Desktop/MIS 321/CODE/PA2/obj/Debug/net5.0/PA2.dll
+/Users/sarahgarrison/Desktop/MIS 321/CODE/PA2/obj/Debug/net5.0/ref/PA2.dll
+/Users/sarahgarrison/Desktop/MIS 321/CODE/PA2/obj/Debug/net5.0/PA2.pdb
+/Users/sarahgarrison/Desktop/MIS 321/CODE/PA2/obj/Debug/net5.0/PA2.genruntimeconfig.cache

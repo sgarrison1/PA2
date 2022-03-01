@@ -20,7 +20,7 @@ namespace PA2
         }
        static string Player1()
        {
-            System.Console.WriteLine("Welcome to the Pirates of the Carribean battle game\nPlayer 1 enter your name");
+            System.Console.WriteLine("Welcome to the Battle of Calypso's Maelstrom\nPlayer 1 enter your name");
             string player1Name = Console.ReadLine();
             return player1Name;
             
